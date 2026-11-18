@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { Tag, Calendar, Search, Landmark, Package, Globe, TriangleAlert } from "lucide-react";
 import { Container, PageHeader, Highlight, seo } from "@/components/site";
 
 export const Route = createFileRoute("/inspecao")({
@@ -8,11 +9,11 @@ export const Route = createFileRoute("/inspecao")({
 });
 
 const hotspots = [
-  { k: "lote", icon: "🏷️", t: "LOTE", d: "Ajuda na identificação e rastreabilidade.", x: "12%", y: "18%" },
-  { k: "val", icon: "📅", t: "VALIDADE", d: "Permite verificar o prazo indicado para o produto.", x: "70%", y: "14%" },
-  { k: "proc", icon: "🔎", t: "PROCEDÊNCIA", d: "Permite identificar a origem do produto.", x: "42%", y: "8%" },
-  { k: "insp", icon: "🏛️", t: "INSPEÇÃO", d: "Indica o serviço de inspeção relacionado ao produto.", x: "84%", y: "62%" },
-  { k: "emb", icon: "📦", t: "EMBALAGEM", d: "Ajuda a preservar as informações e as condições do produto.", x: "6%", y: "70%" },
+  { k: "lote", icon: Tag, t: "LOTE", d: "Ajuda na identificação e rastreabilidade.", x: "12%", y: "18%" },
+  { k: "val", icon: Calendar, t: "VALIDADE", d: "Permite verificar o prazo indicado para o produto.", x: "70%", y: "14%" },
+  { k: "proc", icon: Search, t: "PROCEDÊNCIA", d: "Permite identificar a origem do produto.", x: "42%", y: "8%" },
+  { k: "insp", icon: Landmark, t: "INSPEÇÃO", d: "Indica o serviço de inspeção relacionado ao produto.", x: "84%", y: "62%" },
+  { k: "emb", icon: Package, t: "EMBALAGEM", d: "Ajuda a preservar as informações e as condições do produto.", x: "6%", y: "70%" },
 ];
 
 function Page() {
@@ -22,11 +23,11 @@ function Page() {
       <PageHeader eyebrow="Inspeção Sanitária" title="Quem fiscaliza os produtos de origem animal?" />
       <Container className="py-16">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {[["🏛️", "SIF", "Serviço de Inspeção Federal."], ["🏛️", "SIE", "Serviço de Inspeção Estadual."], ["🏛️", "SIM", "Serviço de Inspeção Municipal."], ["🌎", "SISBI-POA", "Sistema Brasileiro de Inspeção de Produtos de Origem Animal."]].map(([i, t, d]) => (
-            <div key={t} className="rounded-3xl border border-border bg-card p-6 card-lift"><p className="text-4xl">{i}</p><h3 className="mt-3 font-display text-3xl font-black text-secondary">{t}</h3><p className="mt-2 text-muted-foreground">{d}</p></div>
+          {[{ I: Landmark, t: "SIF", d: "Serviço de Inspeção Federal." }, { I: Landmark, t: "SIE", d: "Serviço de Inspeção Estadual." }, { I: Landmark, t: "SIM", d: "Serviço de Inspeção Municipal." }, { I: Globe, t: "SISBI-POA", d: "Sistema Brasileiro de Inspeção de Produtos de Origem Animal." }].map(({ I, t, d }) => (
+            <div key={t} className="rounded-3xl border border-border bg-card p-6 card-lift"><I className="h-10 w-10 text-accent" aria-hidden /><h3 className="mt-3 font-display text-3xl font-black text-secondary">{t}</h3><p className="mt-2 text-muted-foreground">{d}</p></div>
           ))}
         </div>
-        <p className="mt-6 rounded-2xl border-l-4 border-primary bg-muted p-5">⚠️ Os serviços de inspeção possuem competências e abrangências específicas. A identificação encontrada na embalagem deve ser analisada conforme a legislação aplicável.</p>
+        <p className="mt-6 flex items-start gap-3 rounded-2xl border-l-4 border-primary bg-muted p-5"><TriangleAlert className="mt-0.5 h-6 w-6 shrink-0 text-accent" aria-hidden /><span>Os serviços de inspeção possuem competências e abrangências específicas. A identificação encontrada na embalagem deve ser analisada conforme a legislação aplicável.</span></p>
 
         <h2 className="mt-20 text-3xl font-bold">Rotulagem e rastreabilidade</h2>
         <p className="mt-2 text-muted-foreground">Clique nos pontos da embalagem.</p>
@@ -39,11 +40,11 @@ function Page() {
             </div>
             {hotspots.map((h) => (
               <button key={h.k} onClick={() => setSel(h)} style={{ left: h.x, top: h.y }} aria-label={h.t}
-                className={`absolute grid h-11 w-11 place-items-center rounded-full border-2 border-card text-xl shadow-lift transition hover:scale-110 ${sel.k === h.k ? "bg-primary scale-110" : "bg-card animate-step"}`}>{h.icon}</button>
+                className={`absolute grid h-11 w-11 place-items-center rounded-full border-2 border-card shadow-lift transition hover:scale-110 ${sel.k === h.k ? "bg-primary scale-110" : "bg-card animate-step"}`}><h.icon className="h-5 w-5 text-accent" aria-hidden /></button>
             ))}
           </div>
           <div key={sel.k} className="animate-fade-up rounded-3xl bg-card p-8 shadow-soft">
-            <p className="text-5xl">{sel.icon}</p><h3 className="mt-3 text-2xl font-bold">{sel.t}</h3><p className="mt-2 text-lg text-muted-foreground">{sel.d}</p>
+            <sel.icon className="h-12 w-12 text-accent" aria-hidden /><h3 className="mt-3 text-2xl font-bold">{sel.t}</h3><p className="mt-2 text-lg text-muted-foreground">{sel.d}</p>
           </div>
         </div>
         <div className="mt-14"><Highlight>“Saber de onde veio o alimento também faz parte da segurança alimentar.”</Highlight></div>

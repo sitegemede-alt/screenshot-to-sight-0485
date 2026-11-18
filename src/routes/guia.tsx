@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { PartyPopper, XCircle, CheckCircle2, ArrowRight } from "lucide-react";
 import { Container, PageHeader, seo } from "@/components/site";
 
 export const Route = createFileRoute("/guia")({
@@ -10,11 +11,11 @@ export const Route = createFileRoute("/guia")({
 const itens = ["Embalagem adequada", "Validade", "Lote", "Procedência", "Identificação de inspeção", "Integridade dos ovos", "Condições de armazenamento"];
 const praticas = ["Manter caixas afastadas do chão;", "Proteger os produtos contra umidade;", "Retirar produtos danificados conforme os critérios aplicáveis;", "Preservar informações de identificação e rastreabilidade;", "Manter ambiente organizado e higienizado."];
 const mitos = [
-  { f: "Se o ovo estiver bonito, ele está seguro.", r: "❌ MITO", e: "A aparência não garante a ausência de microrganismos.", ok: false },
-  { f: "Ovos da Categoria B possuem destinação específica.", r: "✅ VERDADE", e: "São destinados à industrialização, conforme a legislação.", ok: true },
-  { f: "Todo ovo quebrado é automaticamente impróprio para consumo.", r: "❌ NÃO NECESSARIAMENTE", e: "A avaliação deve seguir os critérios legais e de inspeção.", ok: false },
-  { f: "A proximidade com outro produto sempre significa irregularidade.", r: "❌ MITO", e: "É preciso avaliar organização, separação e risco de contaminação cruzada.", ok: false },
-  { f: "A embalagem pode fornecer informações importantes sobre o produto.", r: "✅ VERDADE", e: "Lote, validade, procedência e inspeção ajudam na rastreabilidade.", ok: true },
+  { f: "Se o ovo estiver bonito, ele está seguro.", r: "MITO", e: "A aparência não garante a ausência de microrganismos.", ok: false },
+  { f: "Ovos da Categoria B possuem destinação específica.", r: "VERDADE", e: "São destinados à industrialização, conforme a legislação.", ok: true },
+  { f: "Todo ovo quebrado é automaticamente impróprio para consumo.", r: "NÃO NECESSARIAMENTE", e: "A avaliação deve seguir os critérios legais e de inspeção.", ok: false },
+  { f: "A proximidade com outro produto sempre significa irregularidade.", r: "MITO", e: "É preciso avaliar organização, separação e risco de contaminação cruzada.", ok: false },
+  { f: "A embalagem pode fornecer informações importantes sobre o produto.", r: "VERDADE", e: "Lote, validade, procedência e inspeção ajudam na rastreabilidade.", ok: true },
 ];
 
 function Page() {
@@ -36,7 +37,7 @@ function Page() {
               </label>
             );
           })}
-          {all && <p className="animate-fade-up mt-5 rounded-2xl bg-yolk-gradient p-5 text-center font-display text-xl font-bold text-primary-foreground">🎉 Você está mais preparado para fazer uma compra consciente!</p>}
+          {all && <p className="animate-fade-up mt-5 flex items-center justify-center gap-2 rounded-2xl bg-yolk-gradient p-5 text-center font-display text-xl font-bold text-primary-foreground"><PartyPopper className="h-6 w-6 shrink-0" aria-hidden />Você está mais preparado para fazer uma compra consciente!</p>}
         </div>
 
         <h2 className="mt-20 text-3xl font-bold">Guia do comerciante: boas práticas na comercialização</h2>
@@ -54,7 +55,7 @@ function Page() {
             return (
               <button key={i} onClick={() => setRev(shown ? rev.filter((x) => x !== i) : [...rev, i])} className={`rounded-3xl border p-6 text-left card-lift ${shown ? (m.ok ? "border-success bg-success/10" : "border-destructive bg-destructive/10") : "border-border bg-card"}`}>
                 <p className="font-display text-xl">“{m.f}”</p>
-                {shown ? <div className="animate-fade-up mt-3"><p className="font-bold">{m.r}</p><p className="text-muted-foreground">{m.e}</p></div> : <p className="mt-3 text-sm font-semibold text-accent">Revelar →</p>}
+                {shown ? <div className="animate-fade-up mt-3"><p className="flex items-center gap-2 font-bold">{m.ok ? <CheckCircle2 className="h-5 w-5 text-success" aria-hidden /> : <XCircle className="h-5 w-5 text-destructive" aria-hidden />}{m.r}</p><p className="text-muted-foreground">{m.e}</p></div> : <p className="mt-3 flex items-center gap-1 text-sm font-semibold text-accent">Revelar <ArrowRight className="h-4 w-4" aria-hidden /></p>}
               </button>
             );
           })}

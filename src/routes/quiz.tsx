@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { Egg, ArrowRight } from "lucide-react";
 import { Container, PageHeader, seo } from "@/components/site";
 import { PERGUNTAS, nivel } from "@/lib/quiz";
 
@@ -24,7 +25,7 @@ function Page() {
             <div className="animate-fade-up text-center">
               <p className="text-sm font-semibold uppercase tracking-widest text-secondary">Sua pontuação</p>
               <p className="mt-2 font-display text-7xl font-black">{score}/{PERGUNTAS.length}</p>
-              <p className="mt-4 text-2xl font-semibold">🥚 {nivel(score)}</p>
+              <p className="mt-4 flex items-center justify-center gap-2 text-2xl font-semibold"><Egg className="h-7 w-7 text-accent" aria-hidden />{nivel(score)}</p>
               <button onClick={reset} className="mt-8 rounded-full bg-primary px-8 py-3 font-bold text-primary-foreground transition hover:scale-105">Refazer quiz</button>
             </div>
           ) : (
@@ -41,8 +42,8 @@ function Page() {
                 })}
               </div>
               {pick !== null && (
-                <button onClick={() => { setI(i + 1); setPick(null); }} className="mt-6 rounded-full bg-secondary px-6 py-3 font-semibold text-secondary-foreground transition hover:scale-105">
-                  {i + 1 === PERGUNTAS.length ? "Ver resultado" : "Próxima →"}
+                <button onClick={() => { setI(i + 1); setPick(null); }} className="mt-6 flex items-center gap-2 rounded-full bg-secondary px-6 py-3 font-semibold text-secondary-foreground transition hover:scale-105">
+                  {i + 1 === PERGUNTAS.length ? "Ver resultado" : <>Próxima <ArrowRight className="h-4 w-4" aria-hidden /></>}
                 </button>
               )}
             </div>

@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import feira from "@/assets/feira.jpg";
 import hero from "@/assets/hero-ovos.jpg";
+import { MapPin } from "lucide-react";
 import { Container, PageHeader, seo } from "@/components/site";
 
 export const Route = createFileRoute("/visita")({
@@ -32,7 +33,7 @@ function Page() {
       <Container className="py-16">
         <div className="grid gap-5 md:grid-cols-2">
           {[["Feira de São Joaquim", "Uma das feiras mais tradicionais de Salvador, com grande variedade de alimentos."], ["CEASA", "Central de abastecimento que concentra a distribuição de alimentos na região."]].map(([t, d]) => (
-            <div key={t} className="rounded-3xl border border-border bg-card p-8 card-lift"><p className="text-3xl">📍</p><h3 className="mt-2 text-2xl font-bold">{t}</h3><p className="mt-2 text-muted-foreground">{d}</p></div>
+            <div key={t} className="rounded-3xl border border-border bg-card p-8 card-lift"><MapPin className="h-8 w-8 text-accent" aria-hidden /><h3 className="mt-2 text-2xl font-bold">{t}</h3><p className="mt-2 text-muted-foreground">{d}</p></div>
           ))}
         </div>
         <h2 className="mt-16 text-3xl font-bold">Galeria da visita</h2>

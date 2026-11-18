@@ -67,8 +67,8 @@
   --color-yolk: var(--yolk);
   --color-shell: var(--shell);
   --color-earth: var(--earth);
-  --font-display: "Fraunces", Georgia, serif;
-  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-display: "Montserrat", system-ui, sans-serif;
+  --font-sans: "Montserrat", system-ui, sans-serif;
   --shadow-soft: var(--shadow-soft);
   --shadow-lift: var(--shadow-lift);
   --color-sidebar: var(--sidebar);

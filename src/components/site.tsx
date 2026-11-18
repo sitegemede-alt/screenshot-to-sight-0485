@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
+import { ArrowDown, ArrowRight, type LucideIcon } from "lucide-react";
 
 export const NAV = [
   { to: "/", label: "Início" },
@@ -68,7 +69,7 @@ export function Footer() {
         <div>
           <p className="font-display text-3xl font-bold">OVO SEGURO</p>
           <p className="mt-2 opacity-80">“Da produção à mesa, a segurança também importa.”</p>
-          <p className="mt-6 inline-block rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground">Projeto acadêmico — Medicina Veterinária</p>
+          <p className="mt-6 inline-block rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground">Projeto acadêmico de Medicina Veterinária</p>
         </div>
         <div className="flex flex-wrap content-start gap-x-5 gap-y-2 md:justify-end">
           {links.map(([to, l]) => <Link key={to} to={to} className="opacity-80 hover:opacity-100 hover:underline">{l}</Link>)}
@@ -95,25 +96,25 @@ export function Container({ children, className = "" }: { children: ReactNode; c
   return <div className={`mx-auto max-w-6xl px-4 ${className}`}>{children}</div>;
 }
 
-export function Flow({ steps, vertical = false }: { steps: { icon: string; label: string }[]; vertical?: boolean }) {
+export function Flow({ steps, vertical = false }: { steps: { icon: LucideIcon; label: string }[]; vertical?: boolean }) {
   return (
     <div className={`flex ${vertical ? "flex-col items-center" : "flex-wrap items-center justify-center"} gap-3`}>
       {steps.map((s, i) => (
         <div key={s.label} className={`flex ${vertical ? "flex-col" : ""} items-center gap-3`}>
           <div className="flex items-center gap-2 rounded-2xl border border-border bg-card px-4 py-3 shadow-soft animate-step" style={{ animationDelay: `${i * 0.3}s` }}>
-            <span className="text-2xl">{s.icon}</span><span className="font-medium">{s.label}</span>
+            <s.icon className="h-6 w-6 text-accent" aria-hidden /><span className="font-medium">{s.label}</span>
           </div>
-          {i < steps.length - 1 && <span className="text-xl text-accent">{vertical ? "↓" : "→"}</span>}
+          {i < steps.length - 1 && (vertical ? <ArrowDown className="h-5 w-5 text-accent" aria-hidden /> : <ArrowRight className="h-5 w-5 text-accent" aria-hidden />)}
         </div>
       ))}
     </div>
   );
 }
 
-export function Card({ icon, title, children }: { icon: string; title: string; children?: ReactNode }) {
+export function Card({ icon: Icon, title, children }: { icon: LucideIcon; title: string; children?: ReactNode }) {
   return (
     <div className="rounded-3xl border border-border bg-card p-6 card-lift">
-      <div className="text-4xl">{icon}</div>
+      <Icon className="h-10 w-10 text-accent" aria-hidden />
       <h3 className="mt-3 text-xl font-semibold">{title}</h3>
       {children && <div className="mt-2 text-muted-foreground">{children}</div>}
     </div>

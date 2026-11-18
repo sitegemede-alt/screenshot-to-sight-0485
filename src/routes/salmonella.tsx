@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Egg, Bug, CookingPot, Thermometer, Sparkles, Package, Search, Landmark } from "lucide-react";
 import { Container, PageHeader, Flow, Card, seo } from "@/components/site";
 
 export const Route = createFileRoute("/salmonella")({
@@ -13,10 +14,10 @@ function Page() {
         A Salmonella é um importante agente relacionado a doenças transmitidas por alimentos. Por isso, boas práticas de higiene, armazenamento, manipulação e preparo são importantes para reduzir riscos.
       </PageHeader>
       <Container className="py-16">
-        <Flow vertical steps={[{ icon: "🥚", label: "Ovo aparentemente normal" }, { icon: "🦠", label: "Possibilidade de contaminação" }, { icon: "🍳", label: "Manipulação/preparo inadequado" }, { icon: "🤒", label: "Doença transmitida por alimento" }]} />
+        <Flow vertical steps={[{ icon: Egg, label: "Ovo aparentemente normal" }, { icon: Bug, label: "Possibilidade de contaminação" }, { icon: CookingPot, label: "Manipulação/preparo inadequado" }, { icon: Thermometer, label: "Doença transmitida por alimento" }]} />
         <h2 className="mt-20 text-center text-3xl font-bold">Como reduzir riscos</h2>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-          <Card icon="🧼" title="Higiene" /><Card icon="📦" title="Armazenamento adequado" /><Card icon="🔎" title="Procedência" /><Card icon="🏛️" title="Inspeção" /><Card icon="🍳" title="Preparo adequado" />
+          <Card icon={Sparkles} title="Higiene" /><Card icon={Package} title="Armazenamento adequado" /><Card icon={Search} title="Procedência" /><Card icon={Landmark} title="Inspeção" /><Card icon={CookingPot} title="Preparo adequado" />
         </div>
       </Container>
     </>

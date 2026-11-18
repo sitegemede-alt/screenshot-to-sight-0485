@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Egg, HeartPulse, Leaf } from "lucide-react";
 import { Container, PageHeader, Flow, seo } from "@/components/site";
 
 export const Route = createFileRoute("/ods")({
@@ -7,9 +8,9 @@ export const Route = createFileRoute("/ods")({
 });
 
 const ods = [
-  { n: "2", icon: "🟡", t: "Fome Zero e Agricultura Sustentável", d: "Relaciona-se ao acesso a alimentos seguros, nutritivos e suficientes.", c: "bg-warning text-primary-foreground" },
-  { n: "3", icon: "🔴", t: "Saúde e Bem-Estar", d: "Relaciona-se à prevenção de doenças transmitidas por alimentos e à proteção da saúde pública.", c: "bg-destructive text-destructive-foreground" },
-  { n: "12", icon: "🟢", t: "Consumo e Produção Responsáveis", d: "Relaciona-se ao armazenamento adequado, comercialização responsável, redução de desperdícios e descarte correto.", c: "bg-secondary text-secondary-foreground" },
+  { n: "2", t: "Fome Zero e Agricultura Sustentável", d: "Relaciona-se ao acesso a alimentos seguros, nutritivos e suficientes.", c: "bg-warning text-primary-foreground" },
+  { n: "3", t: "Saúde e Bem-Estar", d: "Relaciona-se à prevenção de doenças transmitidas por alimentos e à proteção da saúde pública.", c: "bg-destructive text-destructive-foreground" },
+  { n: "12", t: "Consumo e Produção Responsáveis", d: "Relaciona-se ao armazenamento adequado, comercialização responsável, redução de desperdícios e descarte correto.", c: "bg-secondary text-secondary-foreground" },
 ];
 
 function Page() {
@@ -26,7 +27,7 @@ function Page() {
             </article>
           ))}
         </div>
-        <div className="mt-16"><Flow steps={[{ icon: "🥚", label: "Segurança alimentar" }, { icon: "❤️", label: "Saúde" }, { icon: "🌱", label: "Sustentabilidade" }]} /></div>
+        <div className="mt-16"><Flow steps={[{ icon: Egg, label: "Segurança alimentar" }, { icon: HeartPulse, label: "Saúde" }, { icon: Leaf, label: "Sustentabilidade" }]} /></div>
       </Container>
     </>
   );

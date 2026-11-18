@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { Bird, Truck, Package, Store, User, ListChecks, ClipboardCheck, Brain } from "lucide-react";
 import { Container, Flow, Highlight, Card, seo } from "@/components/site";
 
 export const Route = createFileRoute("/")({
@@ -31,12 +32,12 @@ function Index() {
       </section>
       <Container className="py-20">
         <h2 className="text-center text-3xl font-bold md:text-4xl">O caminho do ovo</h2>
-        <div className="mt-10"><Flow steps={[{ icon: "🐔", label: "Produção" }, { icon: "🚚", label: "Transporte" }, { icon: "📦", label: "Armazenamento" }, { icon: "🏪", label: "Comercialização" }, { icon: "🧑", label: "Consumidor" }]} /></div>
+        <div className="mt-10"><Flow steps={[{ icon: Bird, label: "Produção" }, { icon: Truck, label: "Transporte" }, { icon: Package, label: "Armazenamento" }, { icon: Store, label: "Comercialização" }, { icon: User, label: "Consumidor" }]} /></div>
         <div className="mt-16"><Highlight>“Segurança dos alimentos é responsabilidade de toda a cadeia.”</Highlight></div>
         <div className="mt-16 grid gap-6 md:grid-cols-3">
-          <Link to="/classificacao"><Card icon="🟢" title="Classificação dos ovos">Categoria A, Categoria B e impróprios: entenda a diferença.</Card></Link>
-          <Link to="/guia"><Card icon="✅" title="Guia do consumidor">Checklist interativo para uma compra consciente.</Card></Link>
-          <Link to="/quiz"><Card icon="🧠" title="Quiz">Teste seus conhecimentos em 10 perguntas.</Card></Link>
+          <Link to="/classificacao"><Card icon={ListChecks} title="Classificação dos ovos">Categoria A, Categoria B e impróprios: entenda a diferença.</Card></Link>
+          <Link to="/guia"><Card icon={ClipboardCheck} title="Guia do consumidor">Checklist interativo para uma compra consciente.</Card></Link>
+          <Link to="/quiz"><Card icon={Brain} title="Quiz">Teste seus conhecimentos em 10 perguntas.</Card></Link>
         </div>
       </Container>
     </>
