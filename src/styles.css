@@ -160,3 +160,7 @@
 @keyframes egg-shadow-pulse { 0%,100% { transform: scaleX(1); opacity: .8; } 50% { transform: scaleX(.8); opacity: .5; } }
 @utility animate-egg-float { animation: egg-float 7s ease-in-out infinite; }
 @utility animate-egg-shadow { animation: egg-shadow-pulse 7s ease-in-out infinite; }
+@utility egg-3d-b { filter: saturate(.55) brightness(.88) sepia(.25); }
+@utility egg-3d-bad { filter: saturate(.35) brightness(.7) hue-rotate(-15deg); }
+@keyframes lens-scan { 0%,100% { transform: translate(-30%, -20%); } 50% { transform: translate(30%, 25%); } }
+@utility animate-lens { animation: lens-scan 6s ease-in-out infinite; }

@@ -128,3 +128,20 @@ export function seo(title: string, description: string) {
   const t = `${title} | Ovo Seguro`;
   return { meta: [{ title: t }, { name: "description", content: description }, { property: "og:title", content: t }, { property: "og:description", content: description }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] };
 }
+
+export function Egg3D({ variant = "a", size = "h-40 w-30", cracks = false }: { variant?: "a" | "b" | "bad"; size?: string; cracks?: boolean }) {
+  const f = variant === "b" ? "egg-3d-b" : variant === "bad" ? "egg-3d-bad" : "";
+  return (
+    <div className="flex flex-col items-center">
+      <div className={`relative ${size} egg-3d animate-egg-float ${f}`}>
+        {(cracks || variant === "bad") && (
+          <svg viewBox="0 0 100 130" className="absolute inset-0 h-full w-full" aria-hidden>
+            <path d="M30 20 L42 42 L35 55 L48 70 L44 88" stroke="currentColor" strokeWidth="1.8" fill="none" className="text-earth" />
+            <path d="M42 42 L55 47 M48 70 L60 74" stroke="currentColor" strokeWidth="1.2" fill="none" className="text-earth" />
+          </svg>
+        )}
+      </div>
+      <div className="mt-3 h-3 w-24 egg-shadow animate-egg-shadow" />
+    </div>
+  );
+}
