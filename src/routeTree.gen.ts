@@ -10,33 +10,180 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ClassificacaoRouteImport } from './routes/classificacao'
+import { Route as GuiaRouteImport } from './routes/guia'
+import { Route as InspecaoRouteImport } from './routes/inspecao'
+import { Route as OdsRouteImport } from './routes/ods'
+import { Route as PontosDeAtencaoRouteImport } from './routes/pontos-de-atencao'
+import { Route as ProjetoRouteImport } from './routes/projeto'
+import { Route as QuizRouteImport } from './routes/quiz'
+import { Route as ReferenciasRouteImport } from './routes/referencias'
+import { Route as SalmonellaRouteImport } from './routes/salmonella'
+import { Route as SegurancaRouteImport } from './routes/seguranca'
+import { Route as VisitaRouteImport } from './routes/visita'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ClassificacaoRoute = ClassificacaoRouteImport.update({
+  id: '/classificacao',
+  path: '/classificacao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuiaRoute = GuiaRouteImport.update({
+  id: '/guia',
+  path: '/guia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InspecaoRoute = InspecaoRouteImport.update({
+  id: '/inspecao',
+  path: '/inspecao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OdsRoute = OdsRouteImport.update({
+  id: '/ods',
+  path: '/ods',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PontosDeAtencaoRoute = PontosDeAtencaoRouteImport.update({
+  id: '/pontos-de-atencao',
+  path: '/pontos-de-atencao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjetoRoute = ProjetoRouteImport.update({
+  id: '/projeto',
+  path: '/projeto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuizRoute = QuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferenciasRoute = ReferenciasRouteImport.update({
+  id: '/referencias',
+  path: '/referencias',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SalmonellaRoute = SalmonellaRouteImport.update({
+  id: '/salmonella',
+  path: '/salmonella',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SegurancaRoute = SegurancaRouteImport.update({
+  id: '/seguranca',
+  path: '/seguranca',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VisitaRoute = VisitaRouteImport.update({
+  id: '/visita',
+  path: '/visita',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/classificacao': typeof ClassificacaoRoute
+  '/guia': typeof GuiaRoute
+  '/inspecao': typeof InspecaoRoute
+  '/ods': typeof OdsRoute
+  '/pontos-de-atencao': typeof PontosDeAtencaoRoute
+  '/projeto': typeof ProjetoRoute
+  '/quiz': typeof QuizRoute
+  '/referencias': typeof ReferenciasRoute
+  '/salmonella': typeof SalmonellaRoute
+  '/seguranca': typeof SegurancaRoute
+  '/visita': typeof VisitaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/classificacao': typeof ClassificacaoRoute
+  '/guia': typeof GuiaRoute
+  '/inspecao': typeof InspecaoRoute
+  '/ods': typeof OdsRoute
+  '/pontos-de-atencao': typeof PontosDeAtencaoRoute
+  '/projeto': typeof ProjetoRoute
+  '/quiz': typeof QuizRoute
+  '/referencias': typeof ReferenciasRoute
+  '/salmonella': typeof SalmonellaRoute
+  '/seguranca': typeof SegurancaRoute
+  '/visita': typeof VisitaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/classificacao': typeof ClassificacaoRoute
+  '/guia': typeof GuiaRoute
+  '/inspecao': typeof InspecaoRoute
+  '/ods': typeof OdsRoute
+  '/pontos-de-atencao': typeof PontosDeAtencaoRoute
+  '/projeto': typeof ProjetoRoute
+  '/quiz': typeof QuizRoute
+  '/referencias': typeof ReferenciasRoute
+  '/salmonella': typeof SalmonellaRoute
+  '/seguranca': typeof SegurancaRoute
+  '/visita': typeof VisitaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/classificacao'
+    | '/guia'
+    | '/inspecao'
+    | '/ods'
+    | '/pontos-de-atencao'
+    | '/projeto'
+    | '/quiz'
+    | '/referencias'
+    | '/salmonella'
+    | '/seguranca'
+    | '/visita'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/classificacao'
+    | '/guia'
+    | '/inspecao'
+    | '/ods'
+    | '/pontos-de-atencao'
+    | '/projeto'
+    | '/quiz'
+    | '/referencias'
+    | '/salmonella'
+    | '/seguranca'
+    | '/visita'
+  id:
+    | '__root__'
+    | '/'
+    | '/classificacao'
+    | '/guia'
+    | '/inspecao'
+    | '/ods'
+    | '/pontos-de-atencao'
+    | '/projeto'
+    | '/quiz'
+    | '/referencias'
+    | '/salmonella'
+    | '/seguranca'
+    | '/visita'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ClassificacaoRoute: typeof ClassificacaoRoute
+  GuiaRoute: typeof GuiaRoute
+  InspecaoRoute: typeof InspecaoRoute
+  OdsRoute: typeof OdsRoute
+  PontosDeAtencaoRoute: typeof PontosDeAtencaoRoute
+  ProjetoRoute: typeof ProjetoRoute
+  QuizRoute: typeof QuizRoute
+  ReferenciasRoute: typeof ReferenciasRoute
+  SalmonellaRoute: typeof SalmonellaRoute
+  SegurancaRoute: typeof SegurancaRoute
+  VisitaRoute: typeof VisitaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +195,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/classificacao': {
+      id: '/classificacao'
+      path: '/classificacao'
+      fullPath: '/classificacao'
+      preLoaderRoute: typeof ClassificacaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guia': {
+      id: '/guia'
+      path: '/guia'
+      fullPath: '/guia'
+      preLoaderRoute: typeof GuiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inspecao': {
+      id: '/inspecao'
+      path: '/inspecao'
+      fullPath: '/inspecao'
+      preLoaderRoute: typeof InspecaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ods': {
+      id: '/ods'
+      path: '/ods'
+      fullPath: '/ods'
+      preLoaderRoute: typeof OdsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pontos-de-atencao': {
+      id: '/pontos-de-atencao'
+      path: '/pontos-de-atencao'
+      fullPath: '/pontos-de-atencao'
+      preLoaderRoute: typeof PontosDeAtencaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projeto': {
+      id: '/projeto'
+      path: '/projeto'
+      fullPath: '/projeto'
+      preLoaderRoute: typeof ProjetoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quiz': {
+      id: '/quiz'
+      path: '/quiz'
+      fullPath: '/quiz'
+      preLoaderRoute: typeof QuizRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/referencias': {
+      id: '/referencias'
+      path: '/referencias'
+      fullPath: '/referencias'
+      preLoaderRoute: typeof ReferenciasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/salmonella': {
+      id: '/salmonella'
+      path: '/salmonella'
+      fullPath: '/salmonella'
+      preLoaderRoute: typeof SalmonellaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seguranca': {
+      id: '/seguranca'
+      path: '/seguranca'
+      fullPath: '/seguranca'
+      preLoaderRoute: typeof SegurancaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/visita': {
+      id: '/visita'
+      path: '/visita'
+      fullPath: '/visita'
+      preLoaderRoute: typeof VisitaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ClassificacaoRoute: ClassificacaoRoute,
+  GuiaRoute: GuiaRoute,
+  InspecaoRoute: InspecaoRoute,
+  OdsRoute: OdsRoute,
+  PontosDeAtencaoRoute: PontosDeAtencaoRoute,
+  ProjetoRoute: ProjetoRoute,
+  QuizRoute: QuizRoute,
+  ReferenciasRoute: ReferenciasRoute,
+  SalmonellaRoute: SalmonellaRoute,
+  SegurancaRoute: SegurancaRoute,
+  VisitaRoute: VisitaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
