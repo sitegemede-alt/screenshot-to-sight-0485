@@ -21,22 +21,31 @@ function Page() {
   return (
     <>
       <PageHeader eyebrow="Pontos de Atenção" title="O que merece um olhar mais cuidadoso?">Situações que devem ser avaliadas conforme o contexto e a legislação, sem pressupor irregularidade.</PageHeader>
-      <Container className="grid gap-5 py-16 md:grid-cols-2 lg:grid-cols-3">
-        {pontos.map((p, i) => (
-          <div key={p.t} className="flex flex-col rounded-3xl border border-border bg-card p-6 card-lift">
-            <p.icon className="h-12 w-12 text-accent" aria-hidden />
-            <h3 className="mt-4 text-xl font-bold uppercase">{p.t}</h3>
-            {open === i && (
-              <div className="animate-fade-up mt-3 space-y-3">
-                <p className="text-muted-foreground">{p.d}</p>
-                <p className="flex items-start gap-2 rounded-xl bg-secondary/10 p-3 font-semibold text-secondary"><Check className="mt-0.5 h-5 w-5 shrink-0" aria-hidden />{p.r}</p>
+      <Container className="py-16">
+        <div className="border-t border-border">
+          {pontos.map((p, i) => (
+            <div key={p.t} className="border-b border-border py-6">
+              <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-6">
+                <div className="flex w-full items-center gap-4 md:w-80 md:shrink-0">
+                  <span className="label w-8 shrink-0 text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+                  <p.icon className="h-6 w-6 shrink-0 text-accent" aria-hidden />
+                  <h3 className="text-xl font-bold uppercase">{p.t}</h3>
+                </div>
+                <div className="flex-1">
+                  {open === i && (
+                    <div className="animate-fade-up space-y-3">
+                      <p className="text-muted-foreground">{p.d}</p>
+                      <p className="flex items-start gap-2 border-l-2 border-secondary bg-muted p-3 font-semibold text-secondary"><Check className="mt-0.5 h-5 w-5 shrink-0" aria-hidden />{p.r}</p>
+                    </div>
+                  )}
+                  <button onClick={() => setOpen(open === i ? null : i)} className="mt-2 flex items-center gap-1 text-sm font-bold uppercase tracking-[0.12em] text-accent hover:underline">
+                    {open === i ? "Fechar" <>Saiba mais <ArrowRight className="h-4 w-4" aria-hidden /></>}
+                  </button>
+                </div>
               </div>
-            )}
-            <button onClick={() => setOpen(open === i ? null : i)} className="mt-auto flex items-center gap-1 self-start pt-5 font-semibold text-accent hover:underline">
-              {open === i ? "Fechar" : <>Saiba mais <ArrowRight className="h-4 w-4" aria-hidden /></>}
-            </button>
-          </div>
-        ))}
+            </div>
+          ))}
+        </div>
       </Container>
     </>
   );
