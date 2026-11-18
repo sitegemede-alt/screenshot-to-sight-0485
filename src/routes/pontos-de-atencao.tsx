@@ -39,7 +39,7 @@ function Page() {
                     </div>
                   )}
                   <button onClick={() => setOpen(open === i ? null : i)} className="mt-2 flex items-center gap-1 text-sm font-bold uppercase tracking-[0.12em] text-accent hover:underline">
-                    {open === i ? "Fechar" <>Saiba mais <ArrowRight className="h-4 w-4" aria-hidden /></>}
+                    {open === i ? "Fechar" : <>Saiba mais <ArrowRight className="h-4 w-4" aria-hidden /></>}
                   </button>
                 </div>
               </div>
