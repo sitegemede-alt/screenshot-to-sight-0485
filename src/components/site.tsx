@@ -1,4 +1,4 @@
-import { Link, usePathname } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { ArrowDown, ArrowRight, type LucideIcon } from "lucide-react";
 
@@ -92,7 +92,7 @@ export function Footer() {
 }
 
 export function PageHeader({ eyebrow, title, children }: { eyebrow: string; title: string; children?: ReactNode }) {
-  const pathname = usePathname();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
   const idx = NAV.findIndex((n) => n.to === pathname);
   return (
     <section className="border-b border-border bg-muted/70">
